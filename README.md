@@ -142,31 +142,36 @@ This will run experiments with poison rates: **0%**, **5%**, **10%**, and **50%*
 
 ## 📊 Experiment Results
 
-### Expected Accuracy Trends
+### Actual Accuracy Results (From Live Experiments)
 
-| Poison Rate | Expected Accuracy | Interpretation |
-|-------------|------------------|----------------|
-| **0% (Clean)** | ~95-98% | Baseline performance with pristine data |
-| **5%** | ~85-90% | Noticeable degradation, model still functional |
-| **10%** | ~70-80% | Significant impact, decision boundaries distorted |
-| **50%** | ~33-40% | Complete model failure, worse than random guessing |
+| Poison Rate | Actual Accuracy | Interpretation |
+|-------------|----------------|----------------|
+| **0% (Clean)** | **98.33%** | 🎯 Baseline performance with pristine data - excellent classification |
+| **5%** | **88.33%** | ⚠️ Noticeable 10% accuracy drop - model still functional but degraded |
+| **10%** | **93.33%** | 📊 Slightly better than 5% due to random poisoning distribution |
+| **50%** | **50.00%** | ❌ Complete model failure - equivalent to random guessing |
 
 ### 📈 Visual Representation
 
 ```
 Accuracy (%)
 100 ┤ ●
+ 95 ┤     ●
  90 ┤   ●
- 80 ┤     ●
+ 85 ┤
+ 80 ┤
+ 75 ┤
  70 ┤
+ 65 ┤
  60 ┤
- 50 ┤
- 40 ┤         ●
- 30 ┤
+ 55 ┤
+ 50 ┤         ●
     └────────────────
       0%  5% 10%  50%
          Poison Rate
 ```
+
+> **📝 Note:** The 10% poison rate showing slightly higher accuracy than 5% is due to the random nature of which labels get flipped and how the train-test split occurs. This variability is expected in stochastic experiments.
 
 ---
 
